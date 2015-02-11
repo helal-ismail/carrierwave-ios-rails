@@ -39,6 +39,16 @@ You need to add this line to `routes.rb` of your project:
   mount CarrierwaveIosRails::Engine => "/ios-api"
 ```
 
+If you want to add your own list of supported extensions, add initializer containing monkey patching class:
+```ruby
+require CarrierwaveIosRails::Engine.root.join('app', 'uploaders','file_uploader')
+class FileUploader
+  def self.supported_extensions
+    %w(jpg jpeg mp3)
+  end
+end
+```
+
 API
 ===================
 
