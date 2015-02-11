@@ -26,6 +26,11 @@ module CarrierwaveIosRails
       expect(subject.store_dir).to include('attachment')
       expect(subject.store_dir).to include(attachment.id.to_s)
     end
+
+    context "Change default white list extensions"
+    it "contains only specified extensions in initializer" do
+      expect(subject.extension_white_list).to eq(%w(jpg jpeg mp3))
+    end
   end
 end
 end
