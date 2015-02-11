@@ -1,59 +1,9 @@
-Carrierwave iOS Backend
+Carrierwave iOS
 =========================================
 
 Gem that provides API to Carrierwave, built with Ruby on Rails.
 
-Getting started
-===================
-The gem works with Rails 4+. You can add it to your Gemfile with:
-```ruby
-gem 'carrierwave_ios_rails', :git => 'git@github.com:netguru/carrierwave-ios-rails.git'
-```
-§
-Run the bundle command to install it.
-
-After that, you need to copy migrations and migrate them.
-```
-rake carrierwave_ios_rails:install:migrations
-rake db:migrate
-```
-
-You need also to configure your carrierwave by creating `config/initializers/carrierwave.rb` and fill it with your configuration.
-You can follow that example: https://github.com/carrierwaveuploader/carrierwave#configuring-carrierwave
-or use our example:
-```ruby
-CarrierWave.configure do |config|
-  if Rails.env.test?
-    config.storage = :file
-    config.enable_processing = false
-  else
-    config.storage = :file
-  end
-end
-```
-Inside your project create file `.env` and fill it with proper values.
-```ruby
-MAIN_NAME='example.com'
-DOMAIN_URL='http://example.com'
-ROLLBAR_SERVER_TOKEN=''
-SECRET_KEY_BASE='generate this by running `rake secret`'
-DEFAULT_SENDER='no-reply@no-reply.com'
-```
-
-You need to add this line to `routes.rb` of your project:
-```ruby
-  mount CarrierwaveIosRails::Engine => "/ios-api"
-```
-
-If you want to add your own list of supported extensions, add initializer containing monkey patching class:
-```ruby
-require CarrierwaveIosRails::Engine.root.join('app', 'uploaders','file_uploader')
-class FileUploader
-  def self.supported_extensions
-    %w(jpg jpeg mp3)
-  end
-end
-```
+Example app using the gem: https://github.com/netguru/carrierwave-ios-rails-example
 
 API
 ===================
@@ -102,6 +52,59 @@ You can find some guidelines on how to install the above [on mac][mac_guidelines
 ### Recommended
 
 Install git - on mac: `brew install git`, on ubuntu: `apt-get install git`
+
+
+Getting started
+===================
+The gem works with Rails 4+. You can add it to your Gemfile with:
+```ruby
+gem 'carrierwave_ios_rails', :git => 'git@github.com:netguru/carrierwave-ios-rails.git'
+```
+§
+Run the bundle command to install it.
+
+After that, you need to copy migrations and migrate them.
+```
+rake carrierwave_ios_rails:install:migrations
+rake db:migrate
+```
+
+You also need to configure your carrierwave by creating `config/initializers/carrierwave.rb` and filling it with your configuration.
+You can follow that example: https://github.com/carrierwaveuploader/carrierwave#configuring-carrierwave
+or use our example:
+```ruby
+CarrierWave.configure do |config|
+  if Rails.env.test?
+    config.storage = :file
+    config.enable_processing = false
+  else
+    config.storage = :file
+  end
+end
+```
+Inside your project create file `.env` and fill it with proper values.
+```ruby
+MAIN_NAME='example.com'
+DOMAIN_URL='http://example.com'
+ROLLBAR_SERVER_TOKEN=''
+SECRET_KEY_BASE='generate this by running `rake secret`'
+DEFAULT_SENDER='no-reply@no-reply.com'
+```
+
+You need to add this line to `routes.rb` of your project:
+```ruby
+  mount CarrierwaveIosRails::Engine => "/ios-api"
+```
+
+If you want to add your own list of supported extensions, add initializer containing monkey patching class:
+```ruby
+require CarrierwaveIosRails::Engine.root.join('app', 'uploaders','file_uploader')
+class FileUploader
+  def self.supported_extensions
+    %w(jpg jpeg mp3)
+  end
+end
+```
 
 
 Info
