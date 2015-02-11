@@ -1,0 +1,13 @@
+test:
+  override:
+    - bundle exec rspec spec
+
+deployment:
+  master:
+    branch: master
+    commands:
+      - curl -l https://raw.githubusercontent.com/netguru/review/master/check.rb | ruby
+      - heroku maintenance:on --app carrierwave-ios-backend
+      - git push git@heroku.com:carrierwave-ios-backend.git $CIRCLE_SHA1:master
+      - heroku run rake db:migrate --app carrierwave-ios-backend
+      - heroku maintenance:off --app carrierwave-ios-backend
