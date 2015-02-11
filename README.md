@@ -7,12 +7,10 @@ Getting started
 ===================
 The gem works with Rails 4+. You can add it to your Gemfile with:
 ```ruby
-gem 'carrierwave_ios_rails'
+gem 'carrierwave_ios_rails', :git => 'git@github.com:netguru/carrierwave-ios-rails.git'
 ```
 §
 Run the bundle command to install it.
-
-Then you need to edit the file `.env.sample` with proper values and save it as `.env`
 
 After that, you need to copy migrations and migrate them.
 ```
@@ -25,13 +23,21 @@ You can follow that example: https://github.com/carrierwaveuploader/carrierwave#
 or use our example:
 ```ruby
 CarrierWave.configure do |config|
-  if Rails.env.test? || Rails.env.cucumber?
+  if Rails.env.test?
     config.storage = :file
     config.enable_processing = false
   else
     config.storage = :file
   end
 end
+```
+Inside your project create file `.env` and fill it with proper values.
+```ruby
+MAIN_NAME='example.com'
+DOMAIN_URL='http://example.com'
+ROLLBAR_SERVER_TOKEN=''
+SECRET_KEY_BASE='generate this by running `rake secret`'
+DEFAULT_SENDER='no-reply@no-reply.com'
 ```
 
 You need to add this line to `routes.rb` of your project:
@@ -110,6 +116,9 @@ Contribution
 ============
 
 First, thank you for contributing!
+
+Copy `spec/dummy/.env.sample` to `spec/dummy/.env` and fill it with proper values and save it as `.env`
+
 
 Here's a few guidelines to follow:
 
