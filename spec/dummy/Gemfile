@@ -11,7 +11,7 @@ gem 'thin'
 gem 'active_model_serializers'
 gem 'eventmachine', '~> 1.0.4'
 gem 'unicorn'
-gem 'carrierwave_ios_rails', path: '/Users/mariuszblaszczak/projects/carrierwave_ios_rails/'
+gem 'carrierwave_ios_rails', path: '../../../'
 
 group :development do
   gem 'better_errors'
@@ -28,7 +28,6 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'rspec-rails'
 end
-
 
 group :test do
   gem 'database_cleaner'
