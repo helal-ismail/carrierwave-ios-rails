@@ -112,7 +112,7 @@ Here's a few guidelines to follow:
 - open a pull request on GitHub
 - [squash your commits][squash_commits] after receiving feedback
 
-Copyright  2015 © [Netguru][netguru_url], released under the New BSD License
+Copyright  2015 © [Netguru][netguru_url], released under the New BSD License.
 
 [ruby]: https://www.ruby-lang.org
 [rails]: http://www.rubyonrails.org
