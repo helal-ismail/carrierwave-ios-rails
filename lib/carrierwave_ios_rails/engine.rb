@@ -1,5 +1,8 @@
 module CarrierwaveIosRails
   class Engine < ::Rails::Engine
+    require 'carrierwave'
+    require 'decent_exposure'
+
     isolate_namespace CarrierwaveIosRails
 
     config.generators do |g|
