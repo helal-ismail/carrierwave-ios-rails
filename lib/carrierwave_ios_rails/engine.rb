@@ -2,6 +2,7 @@ module CarrierwaveIosRails
   class Engine < ::Rails::Engine
     require 'carrierwave'
     require 'decent_exposure'
+    require 'responders'
 
     isolate_namespace CarrierwaveIosRails
 

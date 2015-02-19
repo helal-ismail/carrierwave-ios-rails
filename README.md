@@ -45,7 +45,7 @@ Config
 | Name |  Version |
 | :--: | :---: |
 | [Ruby][ruby] | 2.1.5 |
-| [Ruby on Rails][rails] | 4.1.8 |
+| [Ruby on Rails][rails] | 4.0.0 or newer |
 
 You can find some guidelines on how to install the above [on mac][mac_guidelines] and [on ubuntu][ubuntu_guidelines]
 
