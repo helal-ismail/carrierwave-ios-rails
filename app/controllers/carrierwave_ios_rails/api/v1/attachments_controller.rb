@@ -15,9 +15,9 @@ module CarrierwaveIosRails
       data = attachment.file_data
       response.headers['Content-Length'] = data.size.to_s
       send_data data,
-      filename: attachment.filename,
-      disposition: 'attachment',
-      status: :ok
+        filename: attachment.filename,
+        disposition: 'attachment',
+        status: :ok
     end
 
     def create
