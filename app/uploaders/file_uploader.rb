@@ -16,20 +16,14 @@ class FileUploader < CarrierWave::Uploader::Base
   end
 
   class << self
+    AUDIO_EXTENSIONS = %w(acc aif aifc aiff asf au flac m4v mp2 mp3 mpa snd wav
+                          wma)
+    IMAGE_EXTENSIONS = %w(bmp dib emf gif jfif jpe jpeg jpg png tif tiff wmf)
+    VIDEO_EXTENSIONS = %w(asf avi dvr-ms m1v m4v mp2 mp2v mp4 mpe mpeg mpg mpv2
+                          wm wmv)
+
     def default_extensions
-      default_video_extensions + default_audio_extensions + default_image_extensions
-    end
-
-    def default_video_extensions
-      %w(asf avi dvr-ms m1v m4v mp2 mp2v mp4 mpe mpeg mpg mpv2 wm wmv)
-    end
-
-    def default_audio_extensions
-      %w(acc aif aifc aiff asf au flac m4v mp2 mp3 mpa snd wav wma)
-    end
-
-    def default_image_extensions
-      %w(bmp dib emf gif jfif jpe jpeg jpg png tif tiff wmf)
+      VIDEO_EXTENSIONS + AUDIO_EXTENSIONS + IMAGE_EXTENSIONS
     end
   end
 end
