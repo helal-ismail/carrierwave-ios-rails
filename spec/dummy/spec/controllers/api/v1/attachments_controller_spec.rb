@@ -2,6 +2,7 @@ require 'spec_helper'
 module CarrierwaveIosRails
 
   describe API::V1::AttachmentsController do
+    before { request.accept = 'application/json' }
     routes { CarrierwaveIosRails::Engine.routes }
     shared_examples_for 'respond with representation of attachment' do
       it 'returns attachment id' do

@@ -1,14 +1,16 @@
 module CarrierwaveIosRails
   class API::V1::AttachmentsController < API::V1::ApiController
+    respond_to :json
+
     expose(:attachment, attributes: :attachment_params, model: Attachment)
     expose(:attachments) { Attachment.all }
 
     def index
-      render json: attachments, status: :ok
+      respond_with attachments, status: :ok
     end
 
     def show
-      render json: attachment, status: :ok
+      respond_with attachment, status: :ok
     end
 
     def download
@@ -23,7 +25,7 @@ module CarrierwaveIosRails
     def create
       if attachment.save
         response.location = api_v1_attachment_url attachment
-        render json: attachment, status: :created
+        respond_with :api, :v1, attachment, status: :created
       else
         render json: { errors: attachment.errors }, status: :unprocessable_entity
       end
