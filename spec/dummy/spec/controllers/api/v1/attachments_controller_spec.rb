@@ -10,7 +10,7 @@ module CarrierwaveIosRails
       end
 
       it 'returns attachment file url' do
-        expect(json_response[:attachment][:file]).to be_an String
+        expect(json_response[:attachment][:file_url]).to be_an String
       end
     end
 

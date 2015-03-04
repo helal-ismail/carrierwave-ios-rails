@@ -1,8 +1,8 @@
 module CarrierwaveIosRails
   class AttachmentSerializer < ActiveModel::Serializer
-    attributes :id, :file
+    attributes :id, :file_url
 
-    def file
+    def file_url
       object.file.url
     end
   end

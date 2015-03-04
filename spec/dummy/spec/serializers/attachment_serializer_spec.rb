@@ -7,7 +7,7 @@ module CarrierwaveIosRails
     subject(:serializer) { described_class.new(attachment).serializable_hash }
 
     it { should have_key(:id) }
-    it { should have_key(:file) }
+    it { should have_key(:file_url) }
 
   end
 end
